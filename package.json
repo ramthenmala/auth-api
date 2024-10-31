@@ -1,0 +1,45 @@
+{
+  "name": "auth-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "ci": "pnpm run build && pnpm run check-format",
+    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
+    "local-release": "changeset version && changeset publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.16.4",
+    "@types/config": "^3.3.5",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/lodash": "^4.17.13",
+    "@types/nodemailer": "^6.4.16",
+    "pino-pretty": "^11.3.0",
+    "prettier": "^3.3.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@typegoose/typegoose": "^12.8.0",
+    "argon2": "^0.41.1",
+    "config": "^3.3.12",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.7.3",
+    "nanoid": "^5.0.8",
+    "nodemailer": "^6.9.16",
+    "pino": "^9.5.0",
+    "zod": "^3.23.8"
+  }
+}
