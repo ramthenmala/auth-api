@@ -13,8 +13,8 @@ const appPort = process.env.PORT || 4001;
 
 const app = express();
 
-app.listen(appPort,  async() => {
-    logStatus.info(`App is running at http://localhost:${appPort}`)
-    await connect();
-    appRouter(app);
-})
+app.listen(appPort, async () => {
+  logStatus.info(`App is running at http://localhost:${appPort}`);
+  await connect();
+  appRouter(app);
+});
