@@ -3,6 +3,14 @@ import argon2 from "argon2";
 import { nanoid } from 'nanoid';
 import logStatus from "../utils/logStatus";
 
+export const privateFields = [
+    "password",
+    "__v",
+    "verificationCode",
+    "passwordResetCode",
+    "verified",
+];
+
 @modelOptions({
     schemaOptions: {
         timestamps: true

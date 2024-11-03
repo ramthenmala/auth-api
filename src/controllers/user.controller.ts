@@ -6,9 +6,8 @@ import sendEmail from '../utils/mailer';
 import { nanoid } from 'nanoid';
 
 export async function createUserHandler(req: Request<{}, {}, CreateUserInput>, res: Response) {
-    const body = req.body;
-
     try {
+        const body = req.body;
         const user = await createUserService(body);
 
         await sendEmail({
@@ -62,7 +61,6 @@ export async function verifyUserHandler(req: Request<VerifyUserInput>, res: Resp
 export async function forgotpasswordHandler(req: Request<{}, {}, ForgotPasswordInput>, res: Response) {
     try {
         const { email } = req.body;
-
         const user = await findUserByEmail(email);
 
         if (!user) {
@@ -96,11 +94,8 @@ export async function forgotpasswordHandler(req: Request<{}, {}, ForgotPasswordI
 
 export async function resetPasswordHandler(req: Request<ResetPasswordInput["params"], {}, ResetPasswordInput['body']>, res: Response) {
     try {
-
         const { id, passwordResetCode } = req.params;
-
         const { password } = req.body;
-
         const user = await findUserById(id);
 
         if (!user || !user.passwordResetCode || user.passwordResetCode !== passwordResetCode) {
@@ -114,10 +109,8 @@ export async function resetPasswordHandler(req: Request<ResetPasswordInput["para
 
         await user.save();
 
-        logStatus.debug(`Successfully updated password`)
         return res.send('Successfully updated password')
-
     } catch (error) {
-
+        logStatus.error(`User with email doesnot exists`, error)
     }
 }
