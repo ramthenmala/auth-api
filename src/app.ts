@@ -9,12 +9,14 @@ import appRouter from './routes';
 
 dotenv.config();
 
-const appPort = process.env.PORT || 4001;
+const appPort = process.env.APP_PORT || 3001;
 
 const app = express();
 
+app.use(express.json())
+
 app.listen(appPort, async () => {
-  logStatus.info(`App is running at http://localhost:${appPort}`);
-  await connect();
-  appRouter(app);
+    logStatus.info(`App is running at http://localhost:${appPort}`);
+    await connect();
+    appRouter(app);
 });
