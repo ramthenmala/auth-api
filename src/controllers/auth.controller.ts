@@ -6,12 +6,11 @@ import { signAccessToken, signRefreshToken } from '../service/auth.service';
 
 export async function createSessionHandler(req: Request<{}, {}, CreateSessionInput>, res: Response) {
     try {
-
         const { email, password } = req.body;
 
-        const message = 'Invalid email or password'
+        const message = 'Invalid email or password';
 
-        const user = await findUserByEmail(email)
+        const user = await findUserByEmail(email);
 
         if (!user) {
             return res
@@ -23,7 +22,7 @@ export async function createSessionHandler(req: Request<{}, {}, CreateSessionInp
         if (!user.verified) {
             return res
                 .status(401)
-                .json({ message: message })
+                .json({ message: "Please verify your email" })
                 .end();
         }
 
@@ -36,11 +35,8 @@ export async function createSessionHandler(req: Request<{}, {}, CreateSessionInp
                 .end();
         }
 
-        console.log('accessToken', user._id)
-
         const accessToken = signAccessToken(user);
-
-        const refreshToken = await signRefreshToken({ userId: user._id.toString() });
+        const refreshToken = await signRefreshToken({ userId: user._id });
 
         return res.send({
             accessToken,
@@ -48,6 +44,7 @@ export async function createSessionHandler(req: Request<{}, {}, CreateSessionInp
         });
 
     } catch (error) {
+        console.error('Error in createSessionHandler:', error); // Log the actual error
         return res
             .status(500)
             .json({ message: 'createSessionHandler errored' })
