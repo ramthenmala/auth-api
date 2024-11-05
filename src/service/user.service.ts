@@ -1,13 +1,13 @@
-import UserModel, { User } from "../model/user.model"
+import UserModel, { User } from '../model/user.model';
 
 export function createUserService(input: Partial<User>) {
-    return UserModel.create(input)
+  return UserModel.create(input);
 }
 
 export function findUserById(id: string) {
-    return UserModel.findById(id)
+  return UserModel.findById(id);
 }
 
 export function findUserByEmail(email: string) {
-    return UserModel.findOne({ email })
+  return UserModel.findOne({ email });
 }
