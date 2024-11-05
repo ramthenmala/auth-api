@@ -39,7 +39,7 @@ export async function createSessionHandler(
     }
 
     const accessToken = signAccessToken(user);
-    const refreshToken = await signRefreshToken({ userId: user._id });
+      const refreshToken = await signRefreshToken({ userId: user._id.toString() });
 
     return res.send({
       accessToken,

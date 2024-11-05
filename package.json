@@ -9,7 +9,8 @@
     "check-format": "prettier --check .",
     "ci": "pnpm run build && pnpm run check-format",
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
-    "local-release": "changeset version && changeset publish"
+    "local-release": "changeset version && changeset publish",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
