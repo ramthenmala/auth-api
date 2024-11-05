@@ -114,3 +114,7 @@ export async function resetPasswordHandler(req: Request<ResetPasswordInput["para
         logStatus.error(`User with email doesnot exists`, error)
     }
 }
+
+export async function getUserHandler(req: Request, res: Response) {
+    return res.send(res.locals.user)
+}

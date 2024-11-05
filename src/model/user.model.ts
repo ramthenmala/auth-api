@@ -19,9 +19,9 @@ export const privateFields = [
         allowMixed: Severity.ALLOW
     }
 })
-    
+
 @index({ email: 1 })
-    
+
 @pre<User>('save', async function () {
     if (!this.isModified('password')) {
         return;
