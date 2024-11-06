@@ -1,4 +1,3 @@
-```markdown
 # Authentication REST API
 
 This project is a fully functional authentication REST API built with Node.js, TypeScript, and Typegoose. It offers user registration, email verification, password recovery, and JWT-based authentication (access and refresh tokens).
@@ -35,9 +34,8 @@ This project is a fully functional authentication REST API built with Node.js, T
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/authentication-rest-api.git
+   git clone https://github.com/ramthenmala/auth-api.git
    cd authentication-rest-api
-   ```
 
 2. **Install Dependencies**
 
