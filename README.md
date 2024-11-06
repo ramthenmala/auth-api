@@ -16,7 +16,7 @@ This project is a fully functional authentication REST API built with Node.js, T
 ## Technologies
 
 - **TypeScript** - Static type checking for enhanced developer experience.
-- **Express@5** - A flexible and lightweight web server framework for building RESTful APIs.
+- **Express** - A flexible and lightweight web server framework for building RESTful APIs.
 - **Typegoose** - A Mongoose wrapper that simplifies TypeScript integration for MongoDB schemas and models.
 - **argon2** - Secure password hashing algorithm.
 - **Zod** - Data validation and parsing, ensuring strict API schema adherence.
